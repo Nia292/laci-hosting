@@ -1,0 +1,36 @@
+{
+  "LaciSynchroni": {
+    "ShardName": "Services",
+    "MetricsPort": 6150,
+    "MainServerAddress": "http://laci-server:6000/",
+    "DiscordChannelForMessages": "",
+    "DiscordChannelForCommands": "",
+    "DiscordChannelForBotLog": "",
+    "DiscordRoleRegistered": "",
+    "KickNonRegisteredUsers": false,
+    "VanityRoles": { "0": "Vanity" },
+    "UidLength": 10,
+    "LockRegistrationToRole": false,
+    "DiscordRegistrationRole": "",
+    "SecondaryUIDLimit": 5,
+    "AllowedDiscordLogs": [
+      "Startup",
+      "VanityCleanup",
+      "UserProcessing",
+      "RegistrationRole",
+      "ModeratorAction",
+      "Register",
+      "Delete",
+      "SecondaryAdd",
+      "VanitySet",
+      "Recover",
+      "Relink",
+      "CaptchaFailed"
+    ],
+    "RunVanityCleanup": false
+  },
+  "AllowedHosts": "*",
+  "Kestrel": {},
+  "IpRateLimiting": {},
+  "IPRateLimitPolicies": {}
+}

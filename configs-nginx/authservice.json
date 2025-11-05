@@ -1,0 +1,22 @@
+{
+  "LaciSynchroni": {
+    "MetricsPort": 6150,
+    "ShardName": "AuthServices",
+    "GeoIPDbCityFile": "",
+    "UseGeoIP": false,
+    "FailedAuthForTempBan": 5,
+    "TempBanDurationInMinutes": 5,
+    "WhitelistedIps": [""],
+    "PublicOAuthBaseUri": ""
+  },
+  "AllowedHosts": "*",
+  "Kestrel": {
+    "Endpoints": {
+      "Http": {
+        "Url": "http://+:6000"
+      }
+    }
+  },
+  "IpRateLimiting": {},
+  "IPRateLimitPolicies": {}
+}

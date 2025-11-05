@@ -1,0 +1,7 @@
+.idea
+.env
+
+# The actual deployment should never be committed
+docker-compose.yaml
+configs
+nginx
