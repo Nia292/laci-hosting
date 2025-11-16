@@ -15,16 +15,18 @@ services:
       timeout: 5s
       retries: 5
   web:
-    image: docker.io/jonasal/nginx-certbot:6
+    image: docker.io/caddy:2.10
     restart: unless-stopped
-    volumes:
-      - ./configs/conf.d:/etc/nginx/user_conf.d:ro
-      - letsencrypt:/etc/letsencrypt
+    cap_add:
+      - NET_ADMIN
     ports:
       - "80:80"
       - "443:443"
-    environment:
-      CERTBOT_EMAIL: "${CERTBOT_EMAIL}"
+      - "443:443/udp"
+    volumes:
+      - ./configs/conf:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
   redis:
     image: redis:8
     command: [sh, -c, "rm -f /data/dump.rdb && redis-server --save \"\" --appendonly no --requirepass ${LACI_REDIS_PASSWORD}"]
@@ -143,4 +145,5 @@ volumes:
     driver: local
   postgresql:
   mod_file_cache:
-  letsencrypt:
+  caddy_data:
+  caddy_config:

@@ -1,7 +1,6 @@
-# NGINX
+# Caddy
 This guide assumes you have read and performed steps 1 and 2 of the self hosting starter guide. If you did not, please
 first [do steps 1 and 2 as outlined in our wiki.](https://lacisynchroni.github.io/wiki/docs/hosting/intro)
-
 
 ## About Updating
 This deployment comes with an automate update path. In order for that path to work, it's **important that you do not
@@ -25,8 +24,8 @@ The following steps assume that you are installing in your **home directory** (`
 2. ``git clone https://github.com/LaciSynchroni/hosting.git laci``
 3. ``cd laci``
 4. ``cp sample.env .env``
-5. ``cp docker-compose.nginx.yaml docker-compose.yaml``
-6. ``cp -r configs-nginx configs``
+5. ``cp docker-compose.caddy.yaml docker-compose.yaml``
+6. ``cp -r configs-caddy configs``
 
 Now you have to change a few configurations. We'll go through them one by one
 
@@ -36,9 +35,12 @@ anything that is not explicitly commented with ``# OPTIONAL:``
 
 Please refer to the comments in the ``.env`` file for full information
 
-## Config: nginx configs
-In the ``~/laci/configs/conf.d`` are two ``.conf`` files. Each of them have references to ``mydomain.com``. Change
-all those references to your own domain. Keep the ``files.`` subdomain.
+## Config: Caddyfile
+In the ``~/laci/configs/conf`` is a file called ``Caddyfile``. This caddyfile contains two domains:
+- ``cdn.mydomain.com``
+- ``laci.mydomain.com``
+
+Please replace both instances with your own domain. **Be sure to keep the ``cdn.`` and ``laci.`` subdomains!**
 
 ## Starting
 1. ``cd ~/laci``
@@ -52,7 +54,7 @@ you have to manually update the deployment.
 1. ``cd ~/laci``
 2. ``git pull``
 3. ``docker compose --env-file .env down``
-4. ``cp docker-compose.nginx.yaml docker-compose.yaml``
+4. ``cp docker-compose.caddy.yaml docker-compose.yaml``
 5. ``docker compose --env-file .env pull``
 6. ``docker compose --env-file .env up -d``
 

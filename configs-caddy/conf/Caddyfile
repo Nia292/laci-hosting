@@ -1,0 +1,9 @@
+cdn.mydomain.com {
+	reverse_proxy laci-files:6000
+}
+
+laci.mydomain.com {
+    reverse_proxy /auth/* laci-auth:6000
+    reverse_proxy /oauth/* laci-auth:6000
+    reverse_proxy * laci-server:6000
+}
