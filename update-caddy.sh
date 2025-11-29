@@ -4,12 +4,7 @@ git diff-index --quiet HEAD
 if [ $? -gt 0 ]; then
     echo "There are modifications to laci relevant files. Automatic update not possible:"
     git diff-index --name-only HEAD
-    exit
-fi
-
-# check if we are in the right directory by checking laci version
-if [ ! -f .laci-version ]; then
-    echo "Not in a laci directory, .laci-version is not present. Automatic update not possible."
+    exit 1
 fi
 
 git pull
