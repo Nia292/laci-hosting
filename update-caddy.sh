@@ -13,7 +13,6 @@ if [ ! -f .laci-version ]; then
 fi
 
 git pull
-chmod +x ./migrate.sh
 ./migrate.sh
 cp docker-compose.caddy.yaml docker-compose.yaml
 echo "docker-compose.yaml updated, pulling new images"

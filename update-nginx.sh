@@ -13,6 +13,7 @@ if [ ! -f .laci-version ]; then
 fi
 
 git pull
+./migrate.sh
 cp docker-compose.nginx.yaml docker-compose.yaml
 echo "docker-compose.yaml updated, pulling new images"
 docker compose --env-file .env pull
