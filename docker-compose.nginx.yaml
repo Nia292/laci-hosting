@@ -111,7 +111,7 @@ services:
     volumes:
       - ./configs/files.json:/opt/LaciSynchroni/StaticFilesServer/appsettings.json
       - ./configs/base.json:/opt/LaciSynchroni/StaticFilesServer/base.appsettings.json
-      - mod_file_cache:/laci-cache/:rw
+      - mod_file_cache:/opt/LaciSynchroni/StaticFilesServer/data/:rw
     depends_on:
       postgres:
         condition: service_healthy
